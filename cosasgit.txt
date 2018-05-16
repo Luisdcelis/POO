@@ -1,0 +1,6 @@
+git add -A
+git commit -m "Mensaje"
+git push origin master		#Del ordenador al servidor
+
+# Del servidor al ordenador
+git pull
