@@ -18,7 +18,6 @@ public:
 	int dia() const noexcept;
 	int mes() const noexcept;
 	int anno() const noexcept;
-	//Fecha& operator =(const Fecha& a);
 	Fecha& operator +=(int n);
 	Fecha& operator -=(int n);
 	Fecha operator +(int n) const ; 
@@ -28,11 +27,7 @@ public:
 	Fecha operator --(int);
 	Fecha& operator --();
 
-	//operator const char*() const;
 	const char* cadena() const;
-
-	//friend std::istream& operator >>(std::istream& is, Fecha& f);
-	//friend std::ostream& operator <<(std::ostream& os, const Fecha& f);
 
 	static const int AnnoMaximo = 2037;
 	static const int AnnoMinimo = 1902;

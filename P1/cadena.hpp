@@ -19,11 +19,7 @@ public:
 	Cadena& operator =(Cadena&& cad) noexcept;
 	Cadena& operator =(const char* cad) noexcept;
 
-	//operator const char*() const; 
 	const char* c_str() const noexcept;
-
-	//friend std::istream& operator >>(istream& is, Cadena& cad);
-	//friend std::ostream& operator <<(ostream& os, const Cadena& cad);
 
 	typedef	 char* iterator;
 	typedef const char* const_iterator;

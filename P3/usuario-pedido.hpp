@@ -39,14 +39,4 @@ inline void Usuario_Pedido::asocia(Pedido& pe, Usuario& us)
 	asocia(us, pe);
 }
 
-/*Usuario_Pedido::Pedidos Usuario_Pedido::pedidos(Usuario& us) const
-{
-	return directa_.at(&us);
-}
-
-Usuario* Usuario_Pedido::cliente(Pedido& pe) const
-{
-	return inversa_.find(&pe)->second;
-}*/	
-
 #endif

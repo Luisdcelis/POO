@@ -11,6 +11,11 @@
 class Usuario;
 
 
+struct EsDigito: std::unary_function<char, bool>
+{
+	bool operator ()(char c) const{return isdigit(c);}
+};
+
 class Numero
 {
 public:
@@ -29,10 +34,6 @@ public:
 		Razon razon_;
 	};
 
-	class EsDigito
-	{
-		bool operator ()(char c){return isdigit(c);}
-	};
 
 
 private:

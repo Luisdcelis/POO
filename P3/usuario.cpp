@@ -1,40 +1,6 @@
 #include <random>
 #include <iomanip>
 #include "usuario.hpp"
-/*
-class SNA 
-{
-public:
-	SNA() {std::srand(std::time(nullptr));}
-};
-
-SNA sna;
-
-Clave::Clave(const char* contra)
-{
-	Cadena contrasena{contra};
-	if(contrasena.length() < 5)
-		throw Incorrecta(CORTA);
-	else
-	{
-		static const char *const seedchars ="./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-		char* seed = nullptr;
-
-		seed[0] = seedchars[std::rand() % 64];
-		seed[1] = seedchars[std::rand() % 64]; 
-
-		const char* const pcc = crypt(contrasena.c_str(), seed);
-		
-		if(const char* const pcc = crypt(contrasena, seed))
-			clave_ = pcc;
-		else
-			throw Incorrecta(ERROR_CRYPT)
-		
-
-		contrasena.~Cadena();
-	}
-}
-*/
 
 Clave::Clave(const char* key)
 {

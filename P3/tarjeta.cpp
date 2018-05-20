@@ -23,8 +23,7 @@ Numero::Numero(const Cadena& num)
 
 	Cadena aux = quitarEspacios(num);
 
-	//if(find_if(aux.begin(), aux.end(), not1(EsDigito)) != aux.end()) 
-	if( count_if(aux.begin(), aux.end(), static_cast<int(*)(int)>(isdigit)) != aux.length())
+	if(find_if(aux.begin(), aux.end(), not1(EsDigito())) != aux.end())
 		throw Incorrecto(Razon::DIGITOS);
 
 	if(aux.length() < 13 || aux.length() > 19)  		  //comprobar la longuitud
