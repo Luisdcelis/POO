@@ -34,24 +34,27 @@ Pedido::Pedido(Usuario_Pedido& us_pe, Pedido_Articulo& pe_art, Usuario& u, const
 				const_cast<Usuario::Articulos&>(u.compra()).clear(); 
 				throw SinStock(*c.first);
 			}
+			else
+			{
+				double precio = aa->precio();
 
-			double precio = aa->precio();
+				aa->stock() -= cantidad; 
 
-			aa->stock() -= cantidad; 
+				pe_art.pedir(*this, *aa, precio, cantidad);
+				total_ += precio * cantidad;
 
-			pe_art.pedir(*this, *aa, precio, cantidad);
-			total_ += precio * cantidad;
+				pedido_final_vacio = false;
+			}
 
-			pedido_final_vacio = false;
 		}
 		else
 		{
 			if(LibroDigital* const ld = dynamic_cast<LibroDigital* const>(pa))
 			{
-				if(ld->f_expir() < fp)
+				if(ld->f_expir() > fp)
 				{
-					total += ld->precio() * cantidad;
-					p_a.pedir(*this, *ld, ld->precio(), cantidad);
+					total_ += ld->precio() * cantidad;
+					pe_art.pedir(*this, *ld, ld->precio(), cantidad);
 
 					pedido_final_vacio = false;
 				}

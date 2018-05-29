@@ -108,8 +108,9 @@ const char* Cadena::c_str() const noexcept
 
 std::istream& operator >>(std::istream& is, Cadena& cad)  noexcept
 {
-	char* aux = new char[31];
+	char* aux = new char[33];
 	int i = 0;
+
 	while(isspace(is.get()) && is.good()){}
 	is.unget();
 	
@@ -118,10 +119,7 @@ std::istream& operator >>(std::istream& is, Cadena& cad)  noexcept
 
 	aux[i] = '\0';
 
-	if(i != 0)
-		cad = Cadena(aux);
-	else
-		cad = Cadena();
+	cad = aux;
 
 	delete[] aux;
 

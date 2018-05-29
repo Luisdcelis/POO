@@ -4,7 +4,7 @@
 Cadena Numero::quitarEspacios(const Cadena& cad)
 {
 	Cadena aux{cad};
-	remove_if(aux.begin(),aux.end()+1,[](char x){return isspace(x);});
+	aux.erase(remove_if(aux.begin(),aux.end()+1,[](char x){return isspace(x);}), aux.end());
 	return aux;
 }
 
