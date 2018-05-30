@@ -36,7 +36,7 @@ std::ostream& operator <<(std::ostream& os, const Pedido_Articulo::ItemsPedido& 
 	double total = 0;
 
 	os << "PVP\tCantidad\t\tArticulo\n";
-	os << "==================================================================\n";
+	os << "===============================================================================\n";
 	for(auto c : IP)
 	{
 		Articulo* pa = c.first;
@@ -47,9 +47,9 @@ std::ostream& operator <<(std::ostream& os, const Pedido_Articulo::ItemsPedido& 
 		os << lp << "\t\t" << "[" << pa->referencia() << "] \"" << pa->titulo() << "\"\n";
 	}
 
-	os << "==================================================================\n";
+	os << "================================================================================\n";
 
-	os << "Total\t" << total;
+	os << "Total\t" << total << " €" << std::endl;
 
 	return os;
 
@@ -58,13 +58,13 @@ std::ostream& operator <<(std::ostream& os, const Pedido_Articulo::ItemsPedido& 
 
 std::ostream& operator <<(std::ostream& os, const Pedido_Articulo::Pedidos& pe)
 {
-	double total = 0;
+	int total = 0;
 	double precio = 0;
 
 	os << "[Pedidos: " << pe.size() << "]\n";
-	os << "==================================================================\n";
-	os << "PVP\tCantidad\t\tFecha de venta\n";
-	os << "==================================================================\n";
+	os << "================================================================================\n";
+	os << " PVP\tCantidad\tFecha de venta\n";
+	os << "================================================================================\n";
 
 	for(auto c : pe)
 	{
@@ -74,10 +74,10 @@ std::ostream& operator <<(std::ostream& os, const Pedido_Articulo::Pedidos& pe)
 		precio += lp.precio_venta() * lp.cantidad();
 		total += lp.cantidad(); 
 
-		os << lp << "\t\t" << pp->fecha();
+		os << lp << "\t\t" << pp->fecha() << "\n";
 	}
 
-	os << "==================================================================\n";
+	os << "================================================================================\n";
 
 	os << std::setprecision(2) << precio << " €\t" << total << std::endl;
 
@@ -97,15 +97,14 @@ std::ostream& Pedido_Articulo::mostrarDetallePedidos(std::ostream& os)
 
 		if(pe->fecha() <= hoy)
 		{
-			os << "Pedido núm." << pe->numero() << "\t" ;
+			os << "Pedido núm." << pe->numero() << "\n";
 			os << "Cliente: " << pe->tarjeta()->titular()->nombre() << "\t";
-			os << "Fecha: " << pe->fecha() << IP ;
+			os << "Fecha: " << pe->fecha() << "\n" << IP;
 		}
 		total += pe->total();
 
 	}
-	os << std::fixed;
-	os << "TOTAL VENTAS: " << std::setprecision(2) << total << " €";
+	os <<  "TOTAL VENTAS\t "  << std::fixed << std::setprecision(2) << total << " €" << std::endl;
 
 	return os;
 }

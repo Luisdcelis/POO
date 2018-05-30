@@ -78,9 +78,11 @@ Pedido::Pedido(Usuario_Pedido& us_pe, Pedido_Articulo& pe_art, Usuario& u, const
 std::ostream& operator <<(std::ostream& os, const Pedido& pe)
 {
 	os << "Núm. pedido: " << pe.numero() << "\n";
-	os << "Fecha:       " << pe.fecha() << "\n";
-	os << "Pagado con:  " << *pe.tarjeta() << "\n";
-	os << "Importe:" << std::fixed << std::setprecision(2) << pe.total() << " €";
+	os << "Fecha:       " << std::setfill(' ') << std::setw(6) << pe.fecha() << "\n";
+	os << "Pagado con:  " << pe.tarjeta()->tipo() << " n.º: " << pe.tarjeta()->numero() << "\n";
+	os << "Importe:" << std::setfill(' ') << std::setw(4) << pe.total() << " €";
 	return os;
 
 }
+
+ 
