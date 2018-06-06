@@ -22,8 +22,6 @@ public:
 	Fecha f_publi() const {return publicacion_;};
 	double precio() const {return precio_;};
 	double& precio() {return precio_;};
-	//unsigned stock() const {return stock_;};
-	//unsigned& stock() {return stock_;};
 
 	const Autores& autores() const {return autores_;};
 
@@ -36,7 +34,6 @@ private:
 	Cadena titulo_;	
 	Fecha publicacion_; 	
 	double precio_;
-	//unsigned stock_;
 
 	const Autores autores_;
 };

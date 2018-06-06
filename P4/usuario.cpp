@@ -90,7 +90,7 @@ std::ostream& mostrar_carro(std::ostream& os, const Usuario& user)
 
   		while( stock > 0 )
   		{
-  			for(auto const& pos : user.compra())  //for each
+  			for(auto const& pos : user.compra())
   			{
   				os << std::setw(4) << pos.second << "    "
   					<< " [" << (*pos.first).referencia() << "] " << "\""

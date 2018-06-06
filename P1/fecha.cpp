@@ -49,15 +49,6 @@ Fecha::Fecha(int dia, int mes, int anno):d_(dia), m_(mes), a_(anno){
 	comprobaciones(d_, m_, a_);	
 }
 
-/*Fecha& Fecha::operator =(const Fecha& a){
-	if(this != &a){
-		d_ = a.d_;
-		m_ = a.m_;
-		a_ = a.a_;
-	}
-	return *this;
-}*/
-
 Fecha::Fecha(const char* c){
 	int dia, mes, anno;
 
